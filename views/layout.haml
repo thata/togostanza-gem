@@ -6,9 +6,18 @@
     %title= @page_title || 'Stanza'
     %link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css')
     %link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css')
-    %link(rel='stylesheet' href='/stanza/assets/stanza.css')
     %script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js')
+
+    -# jsとcssの読み込み
+    -# TODO: Sinatra側ではRailsにマウントされてるかどうかを判断できないため単独起動時とマウント時の両方のパスを読み込んでいる
+
+    -# stanzaサーバ単独起動時のアセット置き場
+    %link(rel='stylesheet' href='/stanza/assets/stanza.css')
     %script(src='/stanza/assets/stanza.js')
+
+    -# Railsマウント時のアセットの置き場
+    %link(rel='stylesheet' href='/assets/stanza.css')
+    %script(src='/assets/stanza.js')
 
   %body
     .container!~ yield
